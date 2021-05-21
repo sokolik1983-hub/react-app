@@ -1,8 +1,8 @@
-import s from './News.module.css';
+import s from './Music.module.css';
 
-const News = () => {
+const Music = () => {
     return (
-        <p>News</p>
+        <p>Music</p>
     )
 };
-export default News;
+export default Music;

@@ -1,30 +1,27 @@
-import s from './Profile.module.css';
+import s from '../MyPosts/MyPosts.module.css';
+import Post from "./Post/Post";
+
+const MyPosts = () => {
+    let posts = [
+        {id: 1, post: 'Hi, how are you?Hi, how are you?11', like: 25},
+        {id: 2, post: 'Its my first post!', like: 15},
+    ];
+
+    let postsElement = posts.map( p => <Post message={p.post} likeCount={p.like} />)
 
 
-const Profile = () => {
     return (
-        <div className={s.content}>
-            <div>
-                <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/19-03-2020_Unsplash_Forest.jpg/image1170x530cropped.jpg" alt="img"/>
+        <div>
+            <h3>My-posts</h3>
+            <div className={s.textareaBox}>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <button>Add post</button>
             </div>
-            <div>
-                ava+desc
-            </div>
-            <div >
-                my-posts
-                <div>
-                    new-post
-                </div>
-                <div className={s.posts}>
-                    <div className={s.item}>
-                        post1
-                    </div>
-                    <div className={s.item}>
-                        post2
-                    </div>
-                </div>
+            <div className={s.posts}>
+                {postsElement}
             </div>
         </div>
     )
-}
-export default Profile;
+};
+
+export default MyPosts;

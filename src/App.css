@@ -10,22 +10,9 @@
   margin: 0 auto;
 
 }
-.header {
-  grid-area: h;
-  background: lightblue;
-  padding: 10px;
-}
-.header img {
-  width: 30px;
-}
-.nav {
-  grid-area: n;
-  background: lightcoral;
-}
-.content {
+.app-wrapper-content {
   grid-area: c;
   background: lightgreen;
+  padding: 20px;
 }
-.content img {
-  width: 100%;
-}
+

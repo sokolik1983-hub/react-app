@@ -1,8 +1,8 @@
-import s from './News.module.css';
+import s from './Settings.module.css';
 
-const News = () => {
+const Settings = () => {
     return (
-        <p>News</p>
+        <p>Settings</p>
     )
 };
-export default News;
+export default Settings;

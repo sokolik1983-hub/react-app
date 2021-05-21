@@ -1,7 +1,12 @@
 .nav {
     grid-area: n;
     background: lightcoral;
+    padding: 20px;
 }
-.item {
+a.item  {
     color: #fff;
+    text-decoration: none;
+}
+a.activeLink {
+    color: gold;
 }
