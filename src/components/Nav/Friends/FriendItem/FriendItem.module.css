@@ -1,0 +1,14 @@
+
+.friend {
+    width: 45%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.friend img {
+    width: 100%;
+    border-radius: 50%;
+}
+.friend p {
+    color: #fff;
+    margin: 0;
+}
