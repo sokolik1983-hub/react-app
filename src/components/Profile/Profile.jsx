@@ -3,11 +3,12 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const Profile = ({requestPosts}) => {
+const Profile = (props) => {
+
     return (
         <div className={s.content}>
             <ProfileInfo />
-            <MyPosts requestPosts={requestPosts} />
+            <MyPosts posts={props.state.posts} />
         </div>
     )
 }
