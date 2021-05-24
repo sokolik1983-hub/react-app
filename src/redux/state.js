@@ -1,4 +1,6 @@
-
+let rerenderEntireTree = () => {
+    console.log('state was changed')
+}
 
 let state = {
     profilePage: {
@@ -7,6 +9,8 @@ let state = {
             {id: 2, post: 'Its my first post!', like: 15},
             {id: 3, post: 'Fucking crazy22', like: 55}
         ],
+        newPostText: 'it-kamasutra.com',
+
 
     },
     friends: [
@@ -29,6 +33,27 @@ let state = {
             {id: 7,name: 'Maria'}
         ],
     },
+}
+
+window.state = state;
+export const addPost = () => {
+    let newPost = {
+        id: 5,
+        post: state.profilePage.newPostText,
+        like: 0
+    };
+    state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) =>  {
+        rerenderEntireTree = observer;
 }
 
 export default state;
