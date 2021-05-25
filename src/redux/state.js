@@ -1,6 +1,6 @@
-const ADD_POST = 'ADD-POST',
-    UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import friendsReducer from "./friendsReducer";
 
 let store = {
     _state: {
@@ -31,6 +31,7 @@ let store = {
                 {id: 6,name: 'Sonya'},
                 {id: 7,name: 'Maria'}
             ],
+            newMessageBody: '',
         },
     },
     _callSubscriber()  {
@@ -44,32 +45,16 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if(action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                post: this._state.profilePage.newPostText,
-                like: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if(action.type === UPDATE_NEW_POST_TEXT)  {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.friends = friendsReducer(this._state.friends, action);
+
+        this._callSubscriber(this._state);
     }
 }
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST,
-    }
-}
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-}
+
+
 
 window.store = store;
 
