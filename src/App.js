@@ -14,18 +14,17 @@ import {addPost, updateNewPostText} from "./redux/store";
 
 
 const App = (props) => {
-
   return (
       <BrowserRouter>
           <div className="app-wrapper">
               <Header />
-              <Nav state={props.appState.friends} />
+              <Nav />
 
               <div className="app-wrapper-content">
                   <Route path="/dialogs"
-                         render={() => <DialogsCont store={props.store} /> } />
+                         render={() => <DialogsCont /> } />
                   <Route path="/profile"
-                         render={() => <Profile store={props.store} /> } />
+                         render={() => <Profile /> } />
 
                   <Route path="/news" component={News} />
                   <Route path="/music" component={Music} />

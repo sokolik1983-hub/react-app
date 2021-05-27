@@ -1,3 +1,6 @@
+const RENDER_FRIENDS = 'RENDER-FRIENDS';
+
+
 let initialState =
     [
         {
@@ -16,7 +19,20 @@ let initialState =
     ];
 
 const friendsReducer = (state = initialState, action) => {
+    if(action.type === RENDER_FRIENDS) {
+        let stateCopy = {...state};
+        console.log(stateCopy)
+        stateCopy.friends = {...state.friends};
+        return stateCopy;
+    }
     return state;
+}
+export const renderFriendsCreator = (state) => {
+    console.log('creator ya');
+    console.log(renderFriendsCreator)
+    return {
+        type: RENDER_FRIENDS,
+    }
 }
 
 export default friendsReducer;
