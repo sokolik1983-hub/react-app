@@ -9,7 +9,7 @@ import store from "../../../redux/reduxStore";
 
 const Friends = () => {
     let state = store.getState().friends;
-    let friendsElements = state.map(f => <FriendItem name={f.name} img={f.img} />)
+    let friendsElements = state.map(f => <FriendItem key={f.id} name={f.name} img={f.img} />)
 
     return (
         <div className={s.friendsCont}>

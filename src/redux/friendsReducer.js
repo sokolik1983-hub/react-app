@@ -28,8 +28,6 @@ const friendsReducer = (state = initialState, action) => {
     return state;
 }
 export const renderFriendsCreator = (state) => {
-    console.log('creator ya');
-    console.log(renderFriendsCreator)
     return {
         type: RENDER_FRIENDS,
     }

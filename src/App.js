@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Profile from "./components/Profile/Profile";
 import DialogsCont from "./components/Dialogs/DialogsCont";
+import Users from "./components/Users/Users";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
@@ -25,7 +26,8 @@ const App = (props) => {
                          render={() => <DialogsCont /> } />
                   <Route path="/profile"
                          render={() => <Profile /> } />
-
+                  <Route path="/users"
+                         render={() => <Users /> } />
                   <Route path="/news" component={News} />
                   <Route path="/music" component={Music} />
                   <Route path="/settings" component={Settings} />
