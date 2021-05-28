@@ -1,23 +1,42 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY',
-    SEND_MESSAGE = 'SEND_MESSAGE';
+const FOLLOW = 'FOLLOW',
+    UNFOLLOW = 'UNFOLLOW',
+    SET_USERS = 'SET_USERS';
 
 
 
 let initialState = {
-    users: [
-        {id: 1, fullName: 'Dima', status: 'Work', location: {city: 'Minsk', country: 'Russia'}},
-        {id: 2, fullName: 'Andrey', status: 'Work', location: {city: 'Moscow', country: 'Russia'}},
-        {id: 3, fullName: 'Nina', status: 'Work', location: {city: 'Kiev', country: 'Ucraine'}},
-        {id: 4, fullName: 'Alex', status: 'Work', location: {city: 'Minsk', country: 'Russia'}},
-        {id: 5, fullName: 'Valera', status: 'Work', location: {city: 'Minsk', country: 'Russia'}},
-        {id: 6, fullName: 'Sonya', status: 'Work', location: {city: 'Minsk', country: 'Russia'}},
-        {id: 7, fullName: 'Maria', status: 'Work', location: {city: 'Minsk', country: 'Russia'}}
-    ],
+    users: [],
 }
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case FOLLOW:
+            return {
+                ...state,
+                    users: state.users.map( u => {
+                        if(u.id === action.userId) {
+                            return {...u, followed: true}
+                        }
+                        return u;
+                    })
 
+                };
+        case UNFOLLOW:
+            return {
+                ...state,
+                users: state.users.map( u => {
+                    if(u.id === action.userId) {
+                        return {...u, followed: false}
+                    }
+                    return u;
+                })
+
+            };
+        case SET_USERS:
+            return {
+                ...state,
+                users: [...state.users, ...action.users]
+            }
         default:
             return state;
 
@@ -25,17 +44,9 @@ const usersReducer = (state = initialState, action) => {
 }
 
 
-export const updateNewMessageBodyCreator = (body) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_BODY,
-        body: body
-    }
-}
-export const sendMessageCreator = () => {
-    return {
-        type: SEND_MESSAGE,
-    }
-}
+export const followActionCreator = (userId) => ({type: FOLLOW, userId})
+export const unfollowActionCreator = (userId) => ({ type: UNFOLLOW, userId})
+export const setUsersActionCreator = (users) => ({ type: SET_USERS, users})
 
 
-export default dialogsReducer;
+export default usersReducer;
