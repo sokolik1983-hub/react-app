@@ -34,3 +34,10 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.pagination span{
+    padding: 5px;
+}
+.pagination .selected {
+    font-size: 25px;
+    font-weight: 600;
+}
