@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
-import Profile from "./components/Profile/Profile";
+import ProfileCont from "./components/Profile/ProfileCont";
 import DialogsCont from "./components/Dialogs/DialogsCont";
 import UsersCont from "./components/Users/UsersCont";
 import News from "./components/News/News";
@@ -24,8 +24,8 @@ const App = (props) => {
               <div className="app-wrapper-content">
                   <Route path="/dialogs"
                          render={() => <DialogsCont /> } />
-                  <Route path="/profile"
-                         render={() => <Profile /> } />
+                  <Route path="/profile/:userId?"
+                         render={() => <ProfileCont /> } />
                   <Route path="/users"
                          render={() => <UsersCont /> } />
                   <Route path="/news" component={News} />
