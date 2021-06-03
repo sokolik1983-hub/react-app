@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import ProfileCont from "./components/Profile/ProfileCont";
 import DialogsCont from "./components/Dialogs/DialogsCont";
@@ -9,7 +7,7 @@ import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import { Route , BrowserRouter } from "react-router-dom";
-import {addPost, updateNewPostText} from "./redux/store";
+import HeaderCont from "./components/Header/HeaderCont";
 
 
 
@@ -18,7 +16,7 @@ const App = (props) => {
   return (
       <BrowserRouter>
           <div className="app-wrapper">
-              <Header />
+              <HeaderCont />
               <Nav />
 
               <div className="app-wrapper-content">

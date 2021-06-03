@@ -2,7 +2,14 @@
     grid-area: h;
     background: lightblue;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .header img {
     width: 30px;
+}
+.loginBlock a, .loginBlock p {
+    color: #fff;
+    text-decoration: none;
 }
